@@ -36,7 +36,10 @@ function onTap(event) {
     return;
   }
 
-  gameState.handleTap(touch.x, touch.y);
+  const tapX = typeof touch.clientX === 'number' ? touch.clientX : touch.x;
+  const tapY = typeof touch.clientY === 'number' ? touch.clientY : touch.y;
+
+  gameState.handleTap(tapX, tapY);
 }
 
 if (typeof wx !== 'undefined' && wx.onTouchStart) {
